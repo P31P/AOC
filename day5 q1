@@ -1,0 +1,23 @@
+s=input()
+bef=[]
+aft=[]
+temp=[]
+while(s!="-1"):
+    temp=s.split("|")
+    bef.append(temp[0])
+    aft.append(temp[1])
+    s=input()
+st=input()
+sum1=0
+while(st!="-1"):
+    flag=0
+    temp=st.split(",")
+    for i in range (len(bef)):
+        if (bef[i] in temp and aft[i] in temp):
+            if (temp.index(bef[i])>temp.index(aft[i])):
+                flag=1
+    if flag==0:
+        x=int((len(temp)-1)/2)
+        sum1+=int(temp[x])
+    st=input()
+print(sum1)
