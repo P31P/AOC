@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main(){
+    int count=0;
+    int temp=0;char c;
+    while(1){
+        vector<int> v,v1;
+        int flag=0;c=' ';
+        while(c!='\n'){
+            scanf("%d%c",&temp,&c);
+            v.push_back(temp);
+            //printf("temp is = %d***\n",temp);
+        }
+        if(temp==-1){printf("i broke\n");break;}
+        temp=v[1]-v[0];
+        for(int i=1;i<v.size();i++){
+            if(temp*(v[i]-v[i-1])<=0||v[i]-v[i-1]>3||v[i]-v[i-1]==0||v[i-1]-v[i]>3){flag=1;break;}
+        }
+        if (flag==0){count++;}
+        else{
+            for(int j=0;j<v.size();j++){
+                v1=v;
+                v1.erase(v1.begin()+j);
+                flag=0;
+                temp=v1[1]-v1[0];
+                for(int i=1;i<v1.size();i++){
+                    if(temp*(v1[i]-v1[i-1])<=0||v1[i]-v1[i-1]>3||v1[i]-v1[i-1]==0||v1[i-1]-v1[i]>3){flag=1;break;}
+                }
+                if(flag==0){count++;break;}
+            }
+        }
+    }
+    printf("The ans is = %d",count);
+}
