@@ -1,0 +1,51 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+int diagonal(){
+    
+}
+int main(){
+    int n=10
+    char mat[n][n];
+    int count=0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            scanf("%c",&mat[i][j]);
+        }
+        scanf("\n");
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(mat[i][j]!='X'){continue;}
+            //check horizontal
+            if(j+3<n){
+                if(mat[i][j+1]=='M'&&mat[i][j+2]=='A'&&mat[i][j+3]=='S'){count++;}
+            }
+            if(j-3>=0){
+                if(mat[i][j-1]=='M'&&mat[i][j-2]=='A'&&mat[i][j-3]=='S'){count++;}
+            }
+            //check vertical
+            if(i+3<n){
+                if(mat[i+1][j]=='M'&&mat[i+2][j]=='A'&&mat[i+3][j]=='S'){count++;}
+            }
+            if(i-3>=0){
+                if(mat[i-1][j]=='M'&&mat[i-2][j]=='A'&&mat[i-3][j]=='S'){count++;}
+            }
+            //check diagonal
+            if(j+3<n&&i-3>=0){
+                if(mat[i-1][j+1]=='M'&&mat[i-2][j+2]=='A'&&mat[i-3][j+3]=='S'){count++;}
+            }
+            if(j-3>=0&&i-3>=0){
+                if(mat[i-1][j-1]=='M'&&mat[i-2][j-2]=='A'&&mat[i-3][j-3]=='S'){count++;}
+            }
+            if(j+3<n&&i+3<n){
+                if(mat[i+1][j+1]=='M'&&mat[i+2][j+2]=='A'&&mat[i+3][j+3]=='S'){count++;}
+            }
+            if(j-3>=0&&i+3<namespace){
+                if(mat[i+1][j-1]=='M'&&mat[i+2][j-2]=='A'&&mat[i+3][j-3]=='S'){count++;}
+            }
+        }
+    }
+    printf("%............%d..............%\n",count);
+}
